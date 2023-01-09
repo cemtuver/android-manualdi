@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/character_list_fragment">
+
+    <fragment
+        android:id="@+id/character_list_fragment"
+        android:name="tuver.manualdi.ui.characterlist.CharacterListFragment"
+        android:label="@string/character_list"
+        tools:layout="@layout/fragment_character_list">
+
+        <action
+            android:id="@+id/to_character_detail"
+            app:destination="@id/character_detail_fragment"
+            app:enterAnim="@anim/anim_fragment_enter"
+            app:exitAnim="@anim/anim_fragment_exit"
+            app:popEnterAnim="@anim/anim_fragment_pop_enter"
+            app:popExitAnim="@anim/anim_fragment_pop_exit" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/character_detail_fragment"
+        android:name="tuver.manualdi.ui.characterdetail.CharacterDetailFragment"
+        android:label="{characterName}"
+        tools:layout="@layout/fragment_character_detail">
+
+        <argument
+            android:name="characterId"
+            app:argType="integer" />
+
+        <argument
+            android:name="characterName"
+            app:argType="string" />
+
+    </fragment>
+
+</navigation>

@@ -1,0 +1,6 @@
+<resources>
+
+    <string name="app_name">Manual DI - Rick and Morty App</string>
+    <string name="character_list">Characters</string>
+
+</resources>
