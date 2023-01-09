@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import tuver.manualdi.domain.GetCharacterUseCase
 import tuver.manualdi.model.Character
+import tuver.manualdi.ui.di.CharacterDetailModule
 
 class CharacterDetailViewModel(
     private val characterId: Int,

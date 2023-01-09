@@ -10,6 +10,7 @@ import androidx.paging.liveData
 import kotlinx.coroutines.launch
 import tuver.manualdi.domain.GetCharacterListPagerUseCase
 import tuver.manualdi.model.Character
+import tuver.manualdi.ui.di.CharacterListModule
 import tuver.manualdi.util.SingleLiveEvent
 
 class CharacterListViewModel(

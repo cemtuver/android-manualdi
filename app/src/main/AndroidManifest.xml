@@ -15,7 +15,7 @@
         android:theme="@style/Theme.ManualDi">
 
         <activity
-            android:name="tuver.manualdi.ui.MainActivity"
+            android:name="tuver.manualdi.ui.CharacterActivity"
             android:exported="true">
 
             <intent-filter>
