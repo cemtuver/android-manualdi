@@ -4,6 +4,7 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Converter
+import tuver.manualdi.di.AppModule
 import tuver.manualdi.provider.SerializationProvider
 
 class SerializationProviderImpl : SerializationProvider {
@@ -12,6 +13,15 @@ class SerializationProviderImpl : SerializationProvider {
 
     override fun createConverterFactory(contentType: String): Converter.Factory {
         return json.asConverterFactory(contentType.toMediaType())
+    }
+
+    companion object {
+
+        context(AppModule)
+        fun create(): SerializationProviderImpl {
+            return SerializationProviderImpl()
+        }
+
     }
 
 }

@@ -17,9 +17,11 @@ class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
 
     private val args: CharacterDetailFragmentArgs by navArgs()
 
-    private val viewModel: CharacterDetailViewModel by viewModelsFactory { CharacterDetailViewModel(args.characterId) }
-
     private val binding: FragmentCharacterDetailBinding by viewBindings()
+
+    private val viewModel: CharacterDetailViewModel by viewModelsFactory {
+        with(module) { CharacterDetailViewModel.create(args.characterId) }
+    }
 
     private fun observeViewModel() {
         viewModel.viewState().observe(viewLifecycleOwner, this::onViewStateChanged)

@@ -10,7 +10,7 @@ class CharacterListModule(
 ) : AppModule by appModule {
 
     val webImageProvider: WebImageProvider by lazy {
-        WebImageProviderImpl(characterListFragment)
+        WebImageProviderImpl.create(characterListFragment)
     }
 
 }

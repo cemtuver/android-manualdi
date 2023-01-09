@@ -8,13 +8,12 @@ import androidx.paging.Pager
 import androidx.paging.cachedIn
 import androidx.paging.liveData
 import kotlinx.coroutines.launch
-import tuver.manualdi.ManualDiApplication.Companion.appModule
 import tuver.manualdi.domain.GetCharacterListPagerUseCase
 import tuver.manualdi.model.Character
 import tuver.manualdi.util.SingleLiveEvent
 
 class CharacterListViewModel(
-    private val getCharacterListPagerUseCase: GetCharacterListPagerUseCase = appModule.getCharacterListPagerUseCase
+    private val getCharacterListPagerUseCase: GetCharacterListPagerUseCase
 ) : ViewModel() {
 
     private val viewState = MutableLiveData<CharacterListViewState>()
@@ -56,6 +55,15 @@ class CharacterListViewModel(
         )
 
         viewAction.postValue(action)
+    }
+
+    companion object {
+
+        context(CharacterListModule)
+        fun create(): CharacterListViewModel {
+            return CharacterListViewModel(getCharacterListPagerUseCase)
+        }
+
     }
 
 }

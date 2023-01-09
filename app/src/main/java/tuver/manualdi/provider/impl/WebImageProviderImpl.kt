@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import tuver.manualdi.di.AppModule
 import tuver.manualdi.provider.WebImageProvider
 
 class WebImageProviderImpl(
@@ -25,6 +26,15 @@ class WebImageProviderImpl(
             .load(imageUrl)
             .transform(imageCrop)
             .into(imageView)
+    }
+
+    companion object {
+
+        context(AppModule)
+        fun create(fragment: Fragment): WebImageProviderImpl {
+            return WebImageProviderImpl(fragment)
+        }
+
     }
 
 }

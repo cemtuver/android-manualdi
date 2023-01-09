@@ -3,7 +3,6 @@ package tuver.manualdi.ui.characterlist
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
@@ -12,14 +11,17 @@ import tuver.manualdi.R
 import tuver.manualdi.databinding.FragmentCharacterListBinding
 import tuver.manualdi.ui.characterlist.adapter.CharacterListAdapter
 import tuver.manualdi.util.extension.viewBindings
+import tuver.manualdi.util.extension.viewModelsFactory
 
 class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
 
     private val module = CharacterListModule(appModule, this)
 
-    private val viewModel: CharacterListViewModel by viewModels()
-
     private val binding: FragmentCharacterListBinding by viewBindings()
+
+    private val viewModel: CharacterListViewModel by viewModelsFactory {
+        with(module) { CharacterListViewModel.create() }
+    }
 
     private val adapter = CharacterListAdapter(module.webImageProvider) {
         viewModel.onUserEventCharacterClicked(it)

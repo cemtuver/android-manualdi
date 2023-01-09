@@ -5,13 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import tuver.manualdi.ManualDiApplication.Companion.appModule
 import tuver.manualdi.domain.GetCharacterUseCase
 import tuver.manualdi.model.Character
 
 class CharacterDetailViewModel(
     private val characterId: Int,
-    private val getCharacterUseCase: GetCharacterUseCase = appModule.getCharacterUseCase
+    private val getCharacterUseCase: GetCharacterUseCase,
 ) : ViewModel() {
 
     private val viewState = MutableLiveData<CharacterDetailViewState>()
@@ -39,6 +38,15 @@ class CharacterDetailViewModel(
 
     fun viewState(): LiveData<CharacterDetailViewState> {
         return viewState
+    }
+
+    companion object {
+
+        context(CharacterDetailModule)
+        fun create(characterId: Int): CharacterDetailViewModel {
+            return CharacterDetailViewModel(characterId, getCharacterUseCase)
+        }
+
     }
 
 }
