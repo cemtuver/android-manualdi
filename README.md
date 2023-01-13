@@ -18,16 +18,22 @@ The latest APK file is available on the [releases page](https://github.com/cemtu
 </table>
 
 ## App architecture
-| What                     | How                            |
-|--------------------------|--------------------------------|
-| **UI**                   | Single activity with fragments |
-| **Pagination**           | Jetpack's paging library       |
-| **Navigation**           | Jetpack's navigation component |
-| **Architecture**         | MVVM with domain layer         |
-| **Async**                | Coroutines                     |
-| **Networking**           | Okhttp3 & Retrofit             |
-| **Image loading**        | Glide                          |
-| **Dependency injection** | Manual 🎉                      |
+* UI
+  * Single activity with fragments
+  * Jetpack's paging library 
+  * Jetpack's navigation component
+* Architecture
+  * MVVM
+  * Use cases
+  * Coroutines
+* Networking
+  * Okhttp3
+  * Retrofit
+  * Glide
+* Gradle
+  * Kotlin DSL
+* Dependency injection
+  * Manual 🎉
 
 ## Manual dependency injection
 TBC
