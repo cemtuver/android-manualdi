@@ -86,3 +86,6 @@ Manual dependency injection is an approach to managing dependencies in Android a
 * Not suitable for all projects: Manual dependency injection may not be the best approach for all projects. For instance, projects with a large number of dependencies may benefit from using a framework or library to manage dependencies.
 
 * Lack of automatic scoping. In some dependency injection frameworks, dependencies can be automatically scoped to certain lifecycle events or contexts, such as a specific activity or fragment. With manual dependency injection, developers must manually manage the scoping of dependencies, which can become complex and error-prone, especially in larger projects. This can lead to potential memory leaks or performance issues if dependencies are not properly scoped. It's important for developers using manual dependency injection to carefully manage the scoping of dependencies to ensure the stability and performance of their application.
+
+## How manual dependency injection works
+TBC
